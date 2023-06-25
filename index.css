@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  color: var(--color-font);
+}
+
+/*=============================================
+=            Variables            =
+=============================================*/
+:root {
+  --gradient: linear-gradient(
+    90deg,
+    #4d016050,
+    #0000ff50,
+    #ff000050,
+    #fffb0050,
+    #ff000050,
+    #0000ff50,
+    #4d016050
+  );
+  --color-bg: #000000;
+  --color-font: #ffffff;
+  --color-scheme-1: #22087d;
+  --color-scheme-2: #feda0a;
+  --color-scheme-3: #c24908;
+}
+
+/*=====  End of Variables  ======*/
+
+/*=============================================
+=            Header            =
+=============================================*/
+header {
+  background-color: var(--color-bg);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+}
+header img {
+  width: 21.989rem; /* ratio 2.375 */
+  height: 1.946rem;
+}
+/*=====  End of Header  ======*/
+
+/*=============================================
+=            Nav            =
+=============================================*/
+nav {
+  margin: 1rem;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.nav-link {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: 600;
+  border: 0.0625rem solid var(--color-scheme-3);
+  border-radius: 0.25rem;
+  background-color: var(--color-scheme-1);
+  color: var(--color-scheme-2);
+  padding: 0.5rem;
+  box-shadow: 0.0625rem 0.0625rem 0.25rem 0.0625rem red;
+}
+.nav-link:hover {
+  transition: 0.5s;
+  background-color: var(--color-scheme-3);
+}
+/*=====  End of Section comment block  ======*/
+
+/*=============================================
+=            Main            =
+=============================================*/
+main {
+  flex: 1;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+main section:nth-child(2) {
+  flex: 1;
+  margin-block: 3rem;
+}
+
+main section:nth-child(1) {
+  position: relative;
+  width: 100%;
+  height: 36rem;
+}
+main section:nth-child(1) img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  object-position: top;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: var(--gradient);
+  background-size: 300%;
+  background-position: left;
+  animation: moveBG 5s infinite linear;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 6rem;
+  color: var(--color-font);
+  user-select: none;
+}
+.overlay p:nth-child(1),
+.overlay p:nth-child(2) {
+  text-transform: uppercase;
+}
+.overlay p:nth-child(2) {
+  font-size: 2rem;
+}
+@keyframes moveBG {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+main section:nth-child(2) {
+  align-self: center;
+  margin-inline: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 53.125rem;
+}
+main section:nth-child(1),
+main section:nth-child(2) article {
+  margin: 0 auto;
+}
+
+#info {
+  font-size: 1.2rem;
+  max-width: 50rem;
+  background-color: #00000070;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+/*=====  End of Main  ======*/
+
+/*=============================================
+=            Brand Card            =
+=============================================*/
+.brand-title {
+  margin-block: 1rem;
+}
+.brand-card {
+  transition: 500ms;
+}
+.brand-card:hover {
+  transform: scale(1.1);
+}
+.brand-card img {
+  width: 100%;
+  height: 7rem;
+  object-fit: cover;
+  /* transition: 500ms; */
+}
+.brand-card img:hover {
+  /* transform: scale(1.1); */
+}
+/*=====  End of Brand Card  ======*/
+
+/*=============================================
+=            Footer            =
+=============================================*/
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  background-color: var(--color-bg);
+  color: #ffffff;
+}
+footer div {
+  max-width: 50%;
+}
+footer img {
+  height: 3.125rem;
+  width: 7.42rem;
+}
+/*=====  End of Footer  ======*/
+
+@media screen and (max-width: 680px) {
+  main section:nth-child(2) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .overlay {
+    font-size: 3rem;
+  }
+  .overlay p:nth-child(2) {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  main section:nth-child(2) {
+    grid-template-columns: 1fr;
+  }
+}
